@@ -15,8 +15,8 @@
 //     return view('welcome');
 // });
 
-Route::get('/', 'HomepageController@index');
+Route::get('/', 'HomepageController@index')->name('homepage');
 
 Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
