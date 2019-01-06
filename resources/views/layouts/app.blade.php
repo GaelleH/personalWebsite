@@ -2,6 +2,7 @@
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
+    <link rel="icon" type="image/png" href="../public/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -25,7 +26,7 @@
                         <li><a href="">About</a></li>
                         <li><a href="">Services</a></li>
                         <li><a href="">Contact</a></li>
-                    @guest
+                    {{-- @guest
                         <li><a href="">login</a></li>
                     @else
                         <li class="dropdown">
@@ -48,7 +49,7 @@
                                 </li>
                             </ul>
                         </li>
-                    @endguest
+                    @endguest --}}
                 </ul>
             </nav>
         </header>

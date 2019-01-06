@@ -17,6 +17,10 @@
 
 Route::get('/', 'HomepageController@index')->name('homepage');
 
+Route::resources([
+    'settings' => 'SettingsController',
+]);
+
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
