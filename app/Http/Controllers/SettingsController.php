@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Setting;
+use DB;
 
 class SettingsController extends Controller
 {
@@ -13,7 +15,7 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('settings.index');
+        // return view('settings.index');
     }
 
     /**
@@ -23,7 +25,7 @@ class SettingsController extends Controller
      */
     public function create()
     {
-        //
+        return view('settings.create');
     }
 
     /**
@@ -34,7 +36,30 @@ class SettingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'site_title' => 'required',
+            'sub_site_title' => 'required',
+            'accent_button_text' => 'required',
+            'block_site_title' => 'required',
+            'block_site_text' => 'required',
+            'contact_site_title' => 'required',
+            'sub_contact_site_title' => 'required',
+            'dark_button_text' => 'required',
+        ]);
+
+        //Create setting
+        $setting = new Setting;
+        $setting->site_title = $request->input('site_title');
+        $setting->sub_site_title = $request->input('sub_site_title');
+        $setting->accent_button_text = $request->input('accent_button_text');
+        $setting->block_site_title = $request->input('block_site_title');
+        $setting->block_site_text = $request->input('block_site_text');
+        $setting->contact_site_title = $request->input('contact_site_title');
+        $setting->sub_contact_site_title = $request->input('sub_contact_site_title');
+        $setting->dark_button_text = $request->input('dark_button_text');
+        $setting->save();
+
+        return redirect('/settings/create')->with('succes', 'Settings edited');
     }
 
     /**

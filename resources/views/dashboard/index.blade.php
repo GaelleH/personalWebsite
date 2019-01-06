@@ -9,7 +9,7 @@
         </a>
     </li>
     <li>
-        <a href="{{ route('settings.index')}}">
+        <a href="{{ route('settings.create')}}">
             <i class="pe-7s-settings"></i>
             <p>Instellingen</p>
         </a>

@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8" />
-	<link rel="icon" type="image/png" href="../public/favicon.ico">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<link rel="icon" type="image/png" href="{{ asset('favicon.ico')}}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 	<title>{{ config('app.name', 'Gaelle Hardy') }}</title>
 
@@ -12,18 +14,18 @@
 
 
     <!-- extra style     -->
-    <link href="../public/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="../public/css/animate.min.css" rel="stylesheet"/>
-    <link href="../public/css/light-bootstrap-dashboard.css?v=1.4.0" rel="stylesheet"/>
+    <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href="{{ asset('css/animate.min.css')}}" rel="stylesheet"/>
+    <link href="{{ asset('css/light-bootstrap-dashboard.css?v=1.4.0')}}" rel="stylesheet"/>
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,300' rel='stylesheet' type='text/css'>
-    <link href="../public/css/pe-icon-7-stroke.css" rel="stylesheet" />
+    <link href="{{ asset('css/pe-icon-7-stroke.css')}}" rel="stylesheet" />
 
 </head>
 <body>
     <div id="app">
         <div class="wrapper">
-            <div class="sidebar" data-color="black" data-image="../storage/app/public/dashboard/sidebar-4.jpg">
+            <div class="sidebar" data-color="black" data-image="{{ asset('storage/dashboard/sidebar-4.jpg')}}">
             <!--
                 Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
                 Tip 2: you can also add an image using data-image tag
@@ -36,7 +38,7 @@
                     </div>
 
                     @yield('sidebar')
-                    
+
                 </div>
             </div>
         
@@ -81,6 +83,7 @@
                         </div>
                     </div>
                 </nav>
+                {{-- @include('layouts.messages') --}}
                 @yield('content')
         
                 <footer class="footer">
@@ -107,12 +110,12 @@
 </body>
     <script src="{{ asset('js/app.js') }}"></script>
     <!--   extra javascript   -->
-    <script src="../public/js/jquery.3.2.1.min.js" type="text/javascript"></script>
-    <script src="../public/js/bootstrap.min.js" type="text/javascript"></script>
-    <script src="../public/js/chartist.min.js"></script>        
-    <script src="../public/js/bootstrap-notify.js"></script>
+    <script src="{{ asset('js/jquery.3.2.1.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('js/bootstrap.min.js')}}" type="text/javascript"></script>
+    <script src="{{ asset('js/chartist.min.js')}}"></script>        
+    <script src="{{ asset('js/bootstrap-notify.js')}}"></script>
     {{-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
-    <script src="../public/js/light-bootstrap-dashboard.js?v=1.4.0"></script>
-    <script src="../public/js/demo.js"></script>
+    <script src="{{ asset('js/light-bootstrap-dashboard.js?v=1.4.0')}}"></script>
+    <script src="{{ asset('js/demo.js')}}"></script>
 </html>
         
