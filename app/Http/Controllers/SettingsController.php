@@ -81,7 +81,10 @@ class SettingsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $id = 1;
+        $setting = Setting::find($id);
+
+        return view('settings.edit')->with('setting', $setting);
     }
 
     /**
@@ -93,7 +96,31 @@ class SettingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'site_title' => 'required',
+            'sub_site_title' => 'required',
+            'accent_button_text' => 'required',
+            'block_site_title' => 'required',
+            'block_site_text' => 'required',
+            'contact_site_title' => 'required',
+            'sub_contact_site_title' => 'required',
+            'dark_button_text' => 'required',
+        ]);
+
+        //Create setting
+        $setting = Setting::find($id);
+        $setting->site_title = $request->input('site_title');
+        $setting->sub_site_title = $request->input('sub_site_title');
+        $setting->accent_button_text = $request->input('accent_button_text');
+        $setting->block_site_title = $request->input('block_site_title');
+        $setting->block_site_text = $request->input('block_site_text');
+        $setting->contact_site_title = $request->input('contact_site_title');
+        $setting->sub_contact_site_title = $request->input('sub_contact_site_title');
+        $setting->dark_button_text = $request->input('dark_button_text');
+        
+        $setting->save();
+
+        return redirect('/settings/1/edit')->with('succes', 'Post Updated');
     }
 
     /**

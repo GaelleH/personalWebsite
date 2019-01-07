@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Setting;
 
 class HomepageController extends Controller
 {
@@ -18,6 +19,7 @@ class HomepageController extends Controller
 
     public function index()
     {
-        return view('Home.index');
+        $settings = Setting::orderBy('created_at', 'desc')->paginate(1);
+        return view('Home.index')->with('settings', $settings);
     }
 }

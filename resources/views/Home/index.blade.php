@@ -1,21 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
+@foreach($settings as $setting)
 
 <section class="home-hero">
     <div class="container">
-        <h1 class="title">Gaëlle Hardy</h1>
-        <h2>Web Developer & Interior designer</h2>
-        <a href="" class="button button-accent">See our work</a>
+        <h1 class="title">{{$setting->site_title}}</h1>
+        <h2>{{$setting->sub_site_title}}</h2>
+        <a href="" class="button button-accent">{{$setting->accent_button_text}}</a>
     </div>
 </section>
 
 <div class="container">
     <section class="home-about">
         <div class="home-about-textbox">
-            <h1>Who we are</h1>
-            <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-            <p> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+            <h1>{{$setting->block_site_title}}</h1>
+            <p>{{$setting->block_site_text}}</p>
         </div>
     </section>
 </div>
@@ -79,10 +79,12 @@
 
 <section class="cta">
     <div class="container">
-        <h1 class="title title-cta">Making things look great</h1>
-        <a href="" class="button button-dark">See our work</a>
+        <h1 class="title title-cta">{{$setting->contact_site_title}}</h1>
+        <p style="margin-bottom:20px">{{$setting->sub_contact_site_title}}</p>
+        <a href="" class="button button-dark">{{$setting->dark_button_text}}</a>
     </div>
 </section>
+@endforeach
 
 <footer>
     <p><a href="{{ route('login') }}">Gaëlle Hardy</a></p>
